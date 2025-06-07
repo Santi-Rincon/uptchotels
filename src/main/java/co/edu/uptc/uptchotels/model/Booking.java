@@ -31,6 +31,8 @@ public class Booking {
         this.bookingStatus = bookingStatus;
     }
 
+    
+
     public Booking() {
         this.hotelName = "";
         this.hotelCity = "";
