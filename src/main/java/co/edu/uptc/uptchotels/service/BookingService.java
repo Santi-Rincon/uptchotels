@@ -13,7 +13,7 @@ import co.edu.uptc.uptchotels.model.Hotel;
 public class BookingService {
     private static List<Booking> bookings = new ArrayList<>();
     
-        private HotelService hotelService; // Se inyecta para verificar disponibilidad del hotel
+        private HotelService hotelService; 
     
         public BookingService(HotelService hotelService) {
             this.hotelService = hotelService;

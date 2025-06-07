@@ -10,7 +10,7 @@ public class HotelService {
     private List<Hotel> hotels = new ArrayList<Hotel>();
 
     public void addHotel(Hotel hotel) {
-        // Validar que no exista un hotel con el mismo nombre en la misma ciudad
+        
         boolean exists = hotels.stream()
             .anyMatch(h -> h.getName().equalsIgnoreCase(hotel.getName()) 
                     && h.getCity().equalsIgnoreCase(hotel.getCity()));

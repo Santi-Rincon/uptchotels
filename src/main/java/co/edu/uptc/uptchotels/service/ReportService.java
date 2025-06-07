@@ -18,13 +18,13 @@ public class ReportService {
     public List<Report> generateReport(LocalDate startDate, LocalDate endDate, String city) {
         List<Booking> allBookings = bookingService.getAllBookings();
 
-        // Filtrar por ciudad y rango de fechas
+      
         List<Booking> filtered = allBookings.stream()
                 .filter(b -> b.getHotelCity().equalsIgnoreCase(city))
                 .filter(b -> !b.getArrivalDate().isBefore(startDate) && !b.getArrivalDate().isAfter(endDate))
                 .collect(Collectors.toList());
 
-        // Agrupar por nombre del hotel
+       
         Map<String, List<Booking>> bookingsByHotel = filtered.stream()
                 .collect(Collectors.groupingBy(Booking::getHotelName));
 
@@ -41,7 +41,7 @@ public class ReportService {
             Map<LocalDate, Integer> occupied = countByDate(hotelBookings, "Check-in");
             Map<LocalDate, Integer> released = countByDate(hotelBookings, "Check-out");
 
-            // Podrías adaptar esta parte si hay múltiples fechas por hotel
+            
             LocalDate arrivalDate = hotelBookings.get(0).getArrivalDate();
 
             Report report = new Report();
