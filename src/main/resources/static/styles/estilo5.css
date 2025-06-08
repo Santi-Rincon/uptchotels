@@ -89,7 +89,9 @@ label {
 /* Estilo unificado para todos los campos de texto */
 input[type="text"],
 input[type="email"],
-input[type="tel"] {
+input[type="tel"],
+input[type="number"], /* Añadido estilo para input tipo number */
+select { /* Añadido estilo para el elemento select */
     width: 100%;
     padding: 0.75rem;
     margin-bottom: 1rem;
@@ -99,11 +101,14 @@ input[type="tel"] {
     border-radius: 6px;
     font-size: 1rem;
     transition: background-color 0.3s ease;
+    box-sizing: border-box; /* Añadido para asegurar que el padding no aumente el ancho */
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="tel"]:focus {
+input[type="tel"]:focus,
+input[type="number"]:focus, /* Añadido focus para input tipo number */
+select:focus { /* Añadido focus para el elemento select */
     background-color: #3b3b3b;
     outline: none;
 }
@@ -169,20 +174,20 @@ button[type="submit"]:hover {
 
 .dropbtn {
     background-color: transparent;
-    color: #f0e6d2; /* Dorado claro */
+    color: #f0e6d2;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
     border: none;
     cursor: pointer;
+    font-size: 1rem;
     transition: background 0.3s ease, color 0.3s ease;
     font-family: inherit;
-    font-size: 1rem;
 }
 
 .dropbtn:hover {
-    background-color: #d4af37; /* Dorado puro */
+    background-color: #d4af37;
     color: #000;
     border-radius: 4px;
 }
@@ -190,7 +195,7 @@ button[type="submit"]:hover {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #1e1e1e; /* Gris oscuro */
+    background-color: #1e1e1e;
     min-width: 180px;
     z-index: 9999;
     box-shadow: 0 4px 8px rgba(0,0,0,0.5);
@@ -200,7 +205,7 @@ button[type="submit"]:hover {
 }
 
 .dropdown-content a {
-    color: #f0e6d2; /* Dorado claro */
+    color: #f0e6d2;
     padding: 0.75rem 1rem;
     text-decoration: none;
     display: block;
@@ -210,7 +215,6 @@ button[type="submit"]:hover {
 .dropdown-content a:hover {
     background-color: #d4af37;
     color: #000;
-    border-radius: 4px;
 }
 
 .dropdown:hover .dropdown-content {

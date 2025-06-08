@@ -17,16 +17,16 @@
     <div class="topnav">
 
         <div class="dropdown">
-            <button class="dropbtn">Menú Hotel</button>
+            <button class="dropbtn">Menu Hotel</button>
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introcreatehotel">Crear Hotel</a>
                 <a href="hotels">Gestionar Hotel</a>
-                <a href="findemployee">Buscar Empleado</a>
+                <a href="findemployee">Buscar Hotel</a>
             </div>
         </div>
 
         <div class="dropdown">
-            <button class="dropbtn">Menú Reserva</button>
+            <button class="dropbtn">Menu Reserva</button>
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introaddcustomer">Crear Reserva</a>
                 <a href="customers">Gestionar Reserva</a>

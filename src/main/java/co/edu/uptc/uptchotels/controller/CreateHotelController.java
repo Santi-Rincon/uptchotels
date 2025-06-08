@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/createhotel")
 public class CreateHotelController extends HttpServlet {
-    private List<Hotel> hotelList = new ArrayList<Hotel>();
+    
 
     public CreateHotelController() {
         super();
@@ -30,22 +30,21 @@ public class CreateHotelController extends HttpServlet {
         try {
             String name = req.getParameter("hotel_name");
             String city = req.getParameter("hotel_city");
-            String address = req.getParameter("hotel_address"); // Corregido el nombre de la variable de 'addres' a 'address'
+            String address = req.getParameter("hotel_address");
             String phone = req.getParameter("hotel_phone");
             String email = req.getParameter("hotel_email");
             String roomCapacityStr = req.getParameter("hotel_roomCapacity");
-            int roomCapacity = 0; // Valor predeterminado
+            int roomCapacity = 0;
             if (roomCapacityStr != null && !roomCapacityStr.trim().isEmpty()) {
                 roomCapacity = Integer.parseInt(roomCapacityStr);
             }
-            
-        
+    
             String statusStr = req.getParameter("hotel_status");
-            boolean status = false; 
+            boolean status = false;
             if (statusStr != null && statusStr.equalsIgnoreCase("true")) {
                 status = true;
             }
-        
+    
             Hotel hotel = new Hotel();
             hotel.setName(name);
             hotel.setCity(city);
@@ -54,28 +53,31 @@ public class CreateHotelController extends HttpServlet {
             hotel.setEmail(email);
             hotel.setRoomCapacity(roomCapacity);
             hotel.setStatus(status);
+    
             
-          
+            List<Hotel> hotelList = (List<Hotel>) req.getSession().getAttribute("hotellist");
+    
+            
+            if (hotelList == null) {
+                hotelList = new ArrayList<>();
+            }
+    
+           
             hotelList.add(hotel);
-        
+    
+            
             req.getSession().setAttribute("oper", "success");
             req.getSession().setAttribute("hotellist", hotelList);
-            resp.sendRedirect("confirm.html"); 
-        
+            resp.sendRedirect("confirm.html");
+    
         } catch (NumberFormatException e) {
-            
-            e.printStackTrace(); 
+            e.printStackTrace();
             req.getSession().setAttribute("error", "El formato de número ingresado no es válido.");
             resp.sendRedirect("error.html");
         } catch (Exception e) {
-            
             e.printStackTrace();
             req.getSession().setAttribute("error", "Ocurrió un error inesperado.");
             resp.sendRedirect("error.html");
         }
-        
-
     }
-
-  
 }

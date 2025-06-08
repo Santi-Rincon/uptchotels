@@ -42,7 +42,7 @@ public class EditHotelController extends HttpServlet {
        
         List<Hotel> list = (List<Hotel>) request.getSession().getAttribute("hotellist");
 
-        if (city == null || email == null || address == null || phone == null || roomCapacityParam == null) {
+        if (city == null || email == null || address == null || phone == null || roomCapacityParam == null || status == null) {
             // Solo llegó el ID → Mostrar el formulario de edición
             for (Hotel hotel : list) {
                 if (hotel.getName().equals(nameParam)) {

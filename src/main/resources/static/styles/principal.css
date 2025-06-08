@@ -186,3 +186,82 @@ form input[type="submit"]:hover {
     background-color: #f0c94d;
     transform: translateY(-5px);
 }
+
+/* Barra de navegación */
+.topnav {
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 2px solid #d4af37;
+}
+
+.topnav a {
+    color: #f0e6d2;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.topnav a:hover {
+    background-color: #d4af37;
+    color: #000;
+    border-radius: 4px;
+}
+
+/* Dropdowns */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #f0e6d2;
+    padding: 0.75rem 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: #d4af37;
+    color: #000;
+    border-radius: 4px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e1e1e;
+    min-width: 180px;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 1px solid #d4af37;
+    border-radius: 6px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-content a {
+    color: #f0e6d2;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #d4af37;
+    color: #000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+

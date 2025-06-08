@@ -1,14 +1,13 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="co.edu.uptc.uptchotels.model.Hotel,java.util.List" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
     request.setCharacterEncoding("UTF-8");
 %>
+<%@ page import="java.util.*, co.edu.uptc.uptchotels.model.Hotel" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Empleados</title>
+    <title>Lista de Hoteles</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/estilo4.css">
 </head>
 <body>
@@ -19,7 +18,7 @@
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introcreatehotel">Crear Hotel</a>
                 <a href="hotels">Gestionar Hotel</a>
-                <a href="findemployee">Buscar Empleado</a>
+                <a href="findemployee">Buscar Hotel</a>
             </div>
         </div>
 
@@ -45,51 +44,47 @@
                     <th>Dirección</th>
                     <th>Teléfono</th>
                     <th>Email</th>
-                    <th>Numero De Habitaciones</th>
+                    <th>Capacidad de Habitaciones</th>
                     <th>Estado</th>
                     <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
-            <c:choose>
-                <c:when test="${not empty sessionScope.hotellist}">
-                    <c:forEach var="emp" items="${sessionScope.hotellist}">
-                        <tr>
-                            <td>${hotel.name}</td>
-                            <td>${hotel.city}</td>
-                            <td>${hotel.address}</td>
-                            <td>${hotel.phone}</td>
-                            <td>${hotel.email}</td>
-                            <td>${hotel.roomCapacity}</td>
-                            <td>${hotel.status}</td>
-                            
-                            <td>
-                                <form action="edithotel" method="post" style="display:inline;">
-                                    <input type="hidden" name="hotel_name" value="${hotel.name}">
-                                    <button type="submit" class="btn edit">Modificar</button>
-                                </form>
-
-                                <form action="deletehotel" method="post" style="display:inline;">
-                                    <input type="hidden" name="id" value="${emp.id}">
-                                    <input type="hidden" name="confirm" value="false">
-                                    <button type="submit" class="btn delete">Eliminar</button>
-                                </form>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <tr>
-                        <td colspan="5">No hay Hoteles registrados.</td>
-                    </tr>
-                </c:otherwise>
-            </c:choose>
+            <%
+                List<Hotel> list = (List<Hotel>) session.getAttribute("hotellist");
+                if (list != null && !list.isEmpty()) {
+                    for (Hotel hotel : list) {
+            %>
+                <tr>
+                    <td><%= hotel.getName() %></td>
+                    <td><%= hotel.getCity() %></td>
+                    <td><%= hotel.getAddress() %></td>
+                    <td><%= hotel.getPhone() %></td>
+                    <td><%= hotel.getEmail() %></td>
+                    <td><%= hotel.getRoomCapacity() %></td>
+                    <td><%= hotel.isStatus() %></td>
+                    
+                    <td>
+                        <a href="edithotel?name=<%= hotel.getName() %>" class="btn edit">Modificar</a>
+                        <a href="deletehotel?name=<%= hotel.getName() %>" class="btn delete">Eliminar</a>
+                    </td>
+                </tr>
+            <%
+                    }
+                } else {
+            %>
+                <tr>
+                    <td colspan="5">No hay Hoteles registrados.</td>
+                </tr>
+            <%
+                }
+            %>
             </tbody>
         </table>
     </div>
 
     <div class="footer">
-        <p>© 2025 Employee App. Todos los derechos reservados.</p>
+        <p>© 2025 UPTCHOTELS App. Todos los derechos reservados.</p>
     </div>
 </body>
 </html>

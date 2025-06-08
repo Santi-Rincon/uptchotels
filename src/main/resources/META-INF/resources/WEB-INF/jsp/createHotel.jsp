@@ -14,16 +14,16 @@
             <div class="topnav">
 
                 <div class="dropdown">
-                    <button class="dropbtn">Menú Hotel</button>
+                    <button class="dropbtn">Menu Hotel</button>
                     <div class="dropdown-content">
                         <a href="${pageContext.request.contextPath}/introcreatehotel">Crear Hotel</a>
                         <a href="hotels">Gestionar Hotel</a>
-                        <a href="findemployee">Buscar Empleado</a>
+                        <a href="findemployee">Buscar Hotel</a>
                     </div>
                 </div>
         
                 <div class="dropdown">
-                    <button class="dropbtn">Menú Reserva</button>
+                    <button class="dropbtn">Menu Reserva</button>
                     <div class="dropdown-content">
                         <a href="${pageContext.request.contextPath}/introaddcustomer">Crear Reserva</a>
                         <a href="customers">Gestionar Reserva</a>
@@ -33,30 +33,30 @@
                 </div>
         
             </div>
-            
+
             <div class="centered">
                 <form action="createhotel" method="post">
                     <h2> UPTCHOTELS APP</h2>
                     <label for="name">Nombre del Hotel:</label>
-                    <input type="text" id="name" name="name">
+                    <input type="text" id="name" name="hotel_name">
 
                     <label for="city">Ciudad:</label>
-                    <input type="text" id="city" name="city">
+                    <input type="text" id="city" name="hotel_city">
 
                     <label for="address">Direccion:</label>
-                    <input type="text" id="address" name="address">
+                    <input type="text" id="address" name="hotel_address">
 
                     <label for="phone">Telefono:</label>
-                    <input type="text" id="phone" name="phone">
+                    <input type="text" id="phone" name="hotel_phone">
 
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="hotel_email">
 
                     <label for="roomCapacity">Capacidad de Habitaciones:</label>
-                    <input type="number" id="roomCapacity" name="roomCapacity" min="1">
+                    <input type="number" id="roomCapacity" name="hotel_roomCapacity" min="1">
 
                     <label for="status">Estado:</label>
-                    <select id="status" name="status">
+                    <select id="status" name="hotel_status">
                         <option value="true">Activo</option>
                         <option value="false">Inactivo</option>
                     </select>

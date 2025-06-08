@@ -20,7 +20,7 @@
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introcreatehotel">Crear Hotel</a>
                 <a href="hotels">Gestionar Hotel</a>
-                <a href="findemployee">Buscar Empleado</a>
+                <a href="findemployee">Buscar Hotel</a>
             </div>
         </div>
 
@@ -59,8 +59,8 @@
 
             <label for="hotel_status">Estado:</label>
             <select id="hotel_status" name="hotel_status">
-                <option value="true" <%= hotel.getStatus() ? "selected" : "" %>>Activo</option>
-                <option value="false" <%= hotel.getStatus() ? "" : "selected" %>>Inactivo</option>
+                <option value="true" <%= hotel.isStatus() ? "selected" : "" %>>Activo</option>
+                <option value="false" <%= hotel.isStatus() ? "" : "selected" %>>Inactivo</option>
                 </select>
 
             <button type="submit" class="btn">Guardar cambios</button>
