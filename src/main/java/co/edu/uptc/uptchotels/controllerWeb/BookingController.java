@@ -28,7 +28,7 @@ public class BookingController {
 
     @RequestMapping(value = "/bookings", method = RequestMethod.GET)
     public List<Booking> getAllBookings() {
-        return bookingService.getAllBookings();
+        return BookingService.getAllBookings();
     }
 
     @RequestMapping(value = "/booking/{guestId}", method = RequestMethod.GET)
