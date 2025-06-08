@@ -1,0 +1,81 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212;
+    color: #f0e6d2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor de mensaje de éxito */
+.success-container {
+    background-color: #1e1e1e;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+    animation: slideUp 1s ease forwards;
+    opacity: 0;
+}
+
+.success-container h1 {
+    font-size: 3rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+}
+
+.success-message {
+    font-size: 1.5rem;
+    color: #f0e6d2;
+    margin-bottom: 2rem;
+    animation: fadeIn 1.5s ease forwards;
+    opacity: 0;
+}
+
+/* Estilo para el botón de vuelta */
+.btn-back {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #d4af37;
+    color: #000;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 1.8s ease forwards;
+    opacity: 0;
+}
+
+.btn-back:hover {
+    background-color: #f0c94d;
+    transform: translateY(-5px);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,4 +1,4 @@
-package co.edu.uptc.uptchotels.controller;
+package co.edu.uptc.uptchotels.controllerWeb;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +10,8 @@ import co.edu.uptc.uptchotels.service.HotelService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@RequestMapping("wsrest")
-@RestController
+//@RequestMapping("wsrest")
+//@RestController
 public class HotelController {
 
     @Autowired

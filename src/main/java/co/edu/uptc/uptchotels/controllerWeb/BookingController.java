@@ -1,4 +1,4 @@
-package co.edu.uptc.uptchotels.controller;
+package co.edu.uptc.uptchotels.controllerWeb;
 
 import java.util.List;
 
