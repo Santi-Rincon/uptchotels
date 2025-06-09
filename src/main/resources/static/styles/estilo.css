@@ -1,0 +1,151 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fuente general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #121212; /* Negro suave */
+    color: #f0e6d2; /* Dorado claro */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor general */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #1e1e1e; /* Gris oscuro elegante */
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Barra de navegación */
+.topnav {
+    background-color: #000; /* Negro */
+    display: flex;
+    position: relative;
+    justify-content: center;
+    z-index: 10000;
+    padding: 1rem;
+    border-bottom: 2px solid #d4af37; /* Línea dorada */
+    align-items: center;
+}
+
+.topnav a {
+    color: #f0e6d2; /* Dorado claro */
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.topnav a:hover {
+    background-color: #d4af37; /* Dorado puro */
+    color: #000;
+    border-radius: 4px;
+}
+
+/* Contenido principal */
+.content {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+    display: flex; /* Añadir para usar flexbox */
+    flex-direction: column; /* Alinear los elementos verticalmente */
+    justify-content: center; /* Centrar verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+}
+
+.content h1 {
+    font-size: 3rem;
+    color: #d4af37; /* Dorado */
+    margin-bottom: 1rem;
+}
+
+.content h2 {
+    font-size: 1.5rem;
+    margin-top: 0.5rem; /* Reducir un poco el margen superior */
+    color: #ccc;
+}
+
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #d4af37;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-top: 2px solid #d4af37;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #f0e6d2; /* Dorado claro */
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.dropbtn:hover {
+    background-color: #d4af37; /* Dorado puro */
+    color: #000;
+    border-radius: 4px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e1e1e; /* Gris oscuro */
+    min-width: 180px;
+    z-index: 9999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    border: 1px solid #d4af37;
+    border-radius: 6px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.dropdown-content a {
+    color: #f0e6d2; /* Dorado claro */
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #d4af37;
+    color: #000;
+    border-radius: 4px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Animación */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
