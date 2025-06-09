@@ -2,12 +2,12 @@
 <%
     request.setCharacterEncoding("UTF-8");
 %>
-<%@ page import="java.util.*, co.edu.uptc.uptchotels.model.Hotel" %>
+<%@ page import="java.util.*, co.edu.uptc.uptchotels.model.Booking" %>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Hoteles</title>
+    <title>Lista de Reserva</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/estilo4.css">
 </head>
 <body>
@@ -35,46 +35,48 @@
     </div>
 
     <div class="content">
-        <h1 class="title">Hoteles</h1>
-        <table class="employee-table">
+        <h1 class="title">Reservas</h1>
+        <table class="booking-table">
             <thead>
                 <tr>
-                    <th>Nombre</th>
-                    <th>Ciudad</th>
-                    <th>Dirección</th>
-                    <th>Teléfono</th>
-                    <th>Email</th>
-                    <th>Capacidad de Habitaciones</th>
-                    <th>Estado</th>
+                    <th>Nombre Hotel</th>
+                    <th>Ciudad Hotel</th>
+                    <th>Nombre de la Persona</th>
+                    <th>Documento de Identidad</th>
+                    <th>Email de la Persona</th>
+                    <th>Fecha de Llegada</th>
+                    <th>Fecha de Salida</th>
+                    <th>Estado de la Reserva</th>
                     <th>Acción</th>
                 </tr>
             </thead>
             <tbody>
             <%
-                List<Hotel> list = (List<Hotel>) session.getAttribute("hotellist");
+                List<Booking> list = (List<<Booking>) session.getAttribute("bookinglist");
                 if (list != null && !list.isEmpty()) {
-                    for (Hotel hotel : list) {
+                    for (Booking booking : list) {
             %>
                 <tr>
-                    <td><%= hotel.getName() %></td>
-                    <td><%= hotel.getCity() %></td>
-                    <td><%= hotel.getAddress() %></td>
-                    <td><%= hotel.getPhone() %></td>
-                    <td><%= hotel.getEmail() %></td>
-                    <td><%= hotel.getRoomCapacity() %></td>
-                    <td><%= hotel.isStatus() %></td>
-                    
+                    <td><%= booking.getHotelName() %></td>
+                    <td><%= booking.getHotelCity() %></td>
+                    <td><%= booking.getGuestName() %></td>
+                    <td><%= booking.getGuestId() %></td>
+                    <td><%= booking.getGuestEmail() %></td>
+                    <td><%= booking.getArrivalDate() %></td>
+                    <td><%= booking.getDepartureDate() %></td>
+                    <td><%= booking.getBookingStatus() %></td>
+
                     <td>
-                        <a href="edithotel?name=<%= hotel.getName() %>" class="btn edit">Modificar</a>
-                        <a href="deletehotel?name=<%= hotel.getName() %>" class="btn delete">Eliminar</a>
+                        <a href="editbooking?guestId=<%= booking.getGuestId() %>" class="btn edit">Modificar Estado de la Reserva</a>
                     </td>
                 </tr>
+                    
             <%
                     }
                 } else {
             %>
                 <tr>
-                    <td colspan="5">No hay Hoteles registrados.</td>
+                    <td colspan="5">No hay reservas registrados.</td>
                 </tr>
             <%
                 }

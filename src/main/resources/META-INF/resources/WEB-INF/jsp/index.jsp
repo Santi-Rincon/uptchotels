@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title> Formulario Empleado</title>
+    <title> UPTC Hotels</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/styles/estilo.css">
 
 </head>
@@ -28,8 +28,8 @@
         <div class="dropdown">
             <button class="dropbtn">Menu Reserva</button>
             <div class="dropdown-content">
-                <a href="${pageContext.request.contextPath}/introaddcustomer">Crear Reserva</a>
-                <a href="customers">Gestionar Reserva</a>
+                <a href="${pageContext.request.contextPath}/introcreatebooking">Crear Reserva</a>
+                <a href="bookings">Gestionar Reserva</a>
                 <a href="findcustomer">Buscar Reserva</a>
                 <a href="findcustomer">Generar Reporte De Reservas</a>
             </div>

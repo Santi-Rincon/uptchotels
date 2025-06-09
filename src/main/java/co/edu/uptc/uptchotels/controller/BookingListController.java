@@ -8,11 +8,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/hotels")
-public class HotelListController extends HttpServlet {
+@WebServlet("/bookings")
+public class BookingListController extends HttpServlet{
 
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-    throws ServletException, IOException {
-        req.getRequestDispatcher("WEB-INF/jsp/hotelList.jsp").forward(req, resp);
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException {
+        req.getRequestDispatcher("WEB-INF/jsp/bookingList.jsp").forward(req, resp);
     }
+
 }

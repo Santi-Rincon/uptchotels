@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-    <%@ page import="co.edu.uptc.uptchotels.model.Hotel,java.util.List" %>
+    <%@ page import="co.edu.uptc.uptchotels.model.Booking,java.util.List" %>
         <!DOCTYPE html>
         <html>
 
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title> Crear Hotel</title>
+            <title> Registrar Reserva</title>
             <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/principal.css">
         </head>
 
@@ -35,44 +35,45 @@
             </div>
 
             <div class="centered">
-                <form action="createhotel" method="post">
+                <form action="createbooking" method="post">
                     <h2> UPTCHOTELS APP</h2>
+
                     <label for="name">Nombre del Hotel:</label>
-                    <input type="text" id="name" name="hotel_name">
+                    <input type="text" id="name" name="hotel_name" required>
 
-                    <label for="city">Ciudad:</label>
-                    <input type="text" id="city" name="hotel_city">
+                    <label for="city">Ciudad del Hotel:</label>
+                    <input type="text" id="city" name="hotel_city" required>
 
-                    <label for="address">Direccion:</label>
-                    <input type="text" id="address" name="hotel_address">
+                    <label for="address">Nombre de la Persona:</label>
+                    <input type="text" id="guestName" name="guest_name" required>
 
-                    <label for="phone">Telefono:</label>
-                    <input type="text" id="phone" name="hotel_phone">
+                    <label for="phone">Documento de Identidad:</label>
+                    <input type="text" id="guestId" name="guest_id" required>
 
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="hotel_email">
+                    <label for="email">Email de la Persona:</label>
+                    <input type="email" id="guestEmail" name="guest_email">
 
-                    <label for="roomCapacity">Capacidad de Habitaciones:</label>
-                    <input type="number" id="roomCapacity" name="hotel_roomCapacity" min="1">
+                    <label for="email">Fecha de Llegada:</label>
+                    <input type="date" id="arrivalDate" name="arrival_date" required>
 
-                    <label for="status">Estado:</label>
-                    <select id="status" name="hotel_status">
-                        <option value="true">Activo</option>
-                        <option value="false">Inactivo</option>
-                    </select>
+                    <label for="email">Fecha de Salida:</label>
+                    <input type="date" id="departureDate" name="departure_date" required>
 
-                    <input type="submit" value="Enviar">
+                    <label for="status">Estado de la Reserva:</label>
+                    <input type="hidden" id="bookingStatus" name="booking_status" value="Registrada" />
+
+                    <input type="submit" value="Crear Reserva">
                 </form>
             </div>
 
-            <% List<Hotel> hotellist=(List<Hotel>)request.getSession().getAttribute("hotellist");
-                if(hotellist !=null) { %>
+            <% List<Booking> bookinglist=(List<Booking>)request.getSession().getAttribute("bookinglist");
+                if(bookinglist !=null) { %>
                 <div style="text-align: center; margin-top: 20px; color: #ccc;">
-                    <h2> Lista de hoteles vacia </h2>
+                    <h2> Lista de reservas vacia </h2>
                 </div>
                 <%} else {%>
                     <div style="text-align: center; margin-top: 20px; color: #ccc;">
-                        <h2> Existen hoteles en el sistema! </h2>
+                        <h2> Existen reservas en el sistema! </h2>
                     </div>
                     <%}%>
         </body>
