@@ -1,6 +1,5 @@
 package co.edu.uptc.uptchotels.service;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,8 +78,8 @@ public class BookingService {
             }
         }
     
-        public static List<Booking> getAllBookings() {
-            return new ArrayList<>(bookings);
+    public static List<Booking> getAllBookings() {
+        return new ArrayList<>(bookings);
     }
 
     public List<Booking> getBookingsByHotel(String hotelName) {

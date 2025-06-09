@@ -55,7 +55,7 @@ public class HotelService {
     }
 
     public List<Hotel> getAllHotels() {
-        return new ArrayList<>(hotels);
+        return hotels;
     }
 
     public List<Hotel> searchHotels(String name, String city) {
