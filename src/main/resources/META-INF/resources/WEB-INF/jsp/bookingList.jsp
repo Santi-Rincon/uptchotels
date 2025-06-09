@@ -52,7 +52,7 @@
             </thead>
             <tbody>
             <%
-                List<Booking> list = (List<<Booking>) session.getAttribute("bookinglist");
+                List<Booking> list = (List<Booking>) session.getAttribute("bookinglist");
                 if (list != null && !list.isEmpty()) {
                     for (Booking booking : list) {
             %>

@@ -59,23 +59,34 @@
                     <label for="email">Fecha de Salida:</label>
                     <input type="date" id="departureDate" name="departure_date" required>
 
-                    <label for="status">Estado de la Reserva:</label>
-                    <input type="hidden" id="bookingStatus" name="booking_status" value="Registrada" />
+                    <label for="bookingStatus">Estado de la Reserva:</label>
+                    <select id="bookingStatus" name="booking_status">
+                        <option value="Registrada">Registrada</option>
+                        <option value="Check-in">Check-in</option>
+                        <option value="Check-out">Check-out</option>
+                        <option value="Cancelada">Cancelada</option>
+                    </select>
 
                     <input type="submit" value="Crear Reserva">
                 </form>
             </div>
 
-            <% List<Booking> bookinglist=(List<Booking>)request.getSession().getAttribute("bookinglist");
-                if(bookinglist !=null) { %>
+            <%
+                List<Booking> bookinglist = (List<Booking>) request.getSession().getAttribute("bookingList");
+                if (bookinglist == null || bookinglist.isEmpty()) {
+            %>
                 <div style="text-align: center; margin-top: 20px; color: #ccc;">
-                    <h2> Lista de reservas vacia </h2>
+                    <h2>Lista de reservas vacia</h2>
                 </div>
-                <%} else {%>
-                    <div style="text-align: center; margin-top: 20px; color: #ccc;">
-                        <h2> Existen reservas en el sistema! </h2>
-                    </div>
-                    <%}%>
-        </body>
+            <%
+                } else {
+            %>
+                <div style="text-align: center; margin-top: 20px; color: #ccc;">
+                    <h2>Existen reservas en el sistema!</h2>
+                </div>
+            <%
+                }
+            %>
+    </body>
 
-        </html>
+    </html>
