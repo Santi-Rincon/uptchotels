@@ -5,6 +5,7 @@ import java.util.List;
 
 import co.edu.uptc.uptchotels.model.Booking;
 import co.edu.uptc.uptchotels.model.Hotel;
+import co.edu.uptc.uptchotels.service.BookingService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

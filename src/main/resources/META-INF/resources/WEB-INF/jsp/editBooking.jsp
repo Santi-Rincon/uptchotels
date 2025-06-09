@@ -40,12 +40,11 @@
     <div class="form-container">
         <h1 style="text-align: center; color: #d4af37;">Modificar Estado de la Reserva</h1>
         <form action="editbooking" method="post">
-            <input type="hidden" name="guest_id" value="<%= booking.getGuestId() %>"/>
+            <label for="guestId">Documento de Identidad del Huesped:</label>
+            <input type="text" id="guestId" name="guest_id" value="<%= booking.getGuestId() %>" required/>
 
-            <p>Estado actual: <strong><%= booking.getBookingStatus() %></strong></p>
-
-            <label>Nuevo Estado de la Reserva:</label><br>
-            <select name="newStatus" required>
+            <label for="newStatus">Nuevo Estado de la Reserva:</label><br>
+            <select id="newStatus" name="newStatus" required>
                 <%
                     String bookingStatus = booking.getBookingStatus();
                     if ("Registrada".equals(bookingStatus)) {

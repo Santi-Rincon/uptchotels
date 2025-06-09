@@ -3,7 +3,8 @@ package co.edu.uptc.uptchotels.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import co.edu.uptc.uptchotels.service.BookingService;
+import co.edu.uptc.uptchotels.service.HotelService;
 import co.edu.uptc.uptchotels.model.Booking;
 import co.edu.uptc.uptchotels.model.Hotel;
 import jakarta.servlet.ServletException;
@@ -11,12 +12,18 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+
 import java.time.LocalDate;
+
+import co.edu.uptc.uptchotels.service.BookingService;
 
 @WebServlet("/createbooking")
 public class CreateBookingController extends HttpServlet{
+    private BookingService bookingService;
+
     public CreateBookingController() {
-        super();
+        this.bookingService = new BookingService(new HotelService());
     }
 
     @Override
@@ -34,12 +41,6 @@ public class CreateBookingController extends HttpServlet{
             String guestEmail = req.getParameter("guest_email");
             LocalDate arrivalDate = req.getParameter("arrival_date") != null ? LocalDate.parse(req.getParameter("arrival_date")) : LocalDate.now();
             LocalDate departureDate = req.getParameter("departure_date") != null ? LocalDate.parse(req.getParameter("departure_date")) : LocalDate.now();
-
-            String bookingStatus = req.getParameter("booking_status");
-            bookingStatus = "Registrada";
-            if (bookingStatus == null || bookingStatus.isEmpty()) {
-                bookingStatus = "Registrada"; 
-            }
 
             List<Hotel> hotelList = (List<Hotel>) req.getSession().getAttribute("hotellist");
             List<Booking> bookingList = (List<Booking>) req.getSession().getAttribute("bookinglist");
@@ -91,9 +92,9 @@ public class CreateBookingController extends HttpServlet{
             booking.setGuestEmail(guestEmail);
             booking.setArrivalDate(arrivalDate);
             booking.setDepartureDate(departureDate);
-            booking.setBookingStatus(bookingStatus);
             
             bookingList.add(booking);
+            bookingService.registerBooking(booking);
             
             req.getSession().setAttribute("oper", "success");
             req.getSession().setAttribute("bookinglist", bookingList);
@@ -101,7 +102,7 @@ public class CreateBookingController extends HttpServlet{
     
         } catch (Exception e) {
             e.printStackTrace();
-            req.getSession().setAttribute("error", "Ocurrió un error inesperado.");
+            req.getSession().setAttribute("error", "Error al registrar la reserva.");
             resp.sendRedirect("error.html");
         }
     }

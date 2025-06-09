@@ -38,22 +38,22 @@
                 <form action="createhotel" method="post">
                     <h2> UPTCHOTELS APP</h2>
                     <label for="name">Nombre del Hotel:</label>
-                    <input type="text" id="name" name="hotel_name">
+                    <input type="text" id="name" name="hotel_name" required>
 
                     <label for="city">Ciudad:</label>
-                    <input type="text" id="city" name="hotel_city">
+                    <input type="text" id="city" name="hotel_city" required>
 
                     <label for="address">Direccion:</label>
-                    <input type="text" id="address" name="hotel_address">
+                    <input type="text" id="address" name="hotel_address" required>
 
                     <label for="phone">Telefono:</label>
-                    <input type="text" id="phone" name="hotel_phone">
+                    <input type="text" id="phone" name="hotel_phone" required>
 
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="hotel_email">
+                    <input type="email" id="email" name="hotel_email" required>
 
                     <label for="roomCapacity">Capacidad de Habitaciones:</label>
-                    <input type="number" id="roomCapacity" name="hotel_roomCapacity" min="1">
+                    <input type="number" id="roomCapacity" name="hotel_roomCapacity" min="1" required>
 
                     <label for="status">Estado:</label>
                     <select id="status" name="hotel_status">

@@ -36,27 +36,27 @@
 
             <div class="centered">
                 <form action="createbooking" method="post">
-                    <h2> UPTCHOTELS APP</h2>
+                    <h2> Registrar Nueva Reserva</h2>
 
-                    <label for="name">Nombre del Hotel:</label>
-                    <input type="text" id="name" name="hotel_name" required>
+                    <label for="hotelName">Nombre del Hotel:</label>
+                    <input type="text" id="hotelName" name="hotel_name" required>
 
-                    <label for="city">Ciudad del Hotel:</label>
-                    <input type="text" id="city" name="hotel_city" required>
+                    <label for="hotelCity">Ciudad del Hotel:</label>
+                    <input type="text" id="hotelCity" name="hotel_city" required>
 
-                    <label for="address">Nombre de la Persona:</label>
+                    <label for="guestName">Nombre de la Persona:</label>
                     <input type="text" id="guestName" name="guest_name" required>
 
-                    <label for="phone">Documento de Identidad:</label>
+                    <label for="guestId">Documento de Identidad:</label>
                     <input type="text" id="guestId" name="guest_id" required>
 
-                    <label for="email">Email de la Persona:</label>
+                    <label for="guestEmail">Email de la Persona:</label>
                     <input type="email" id="guestEmail" name="guest_email">
 
-                    <label for="email">Fecha de Llegada:</label>
+                    <label for="arrivalDate">Fecha de Llegada:</label>
                     <input type="date" id="arrivalDate" name="arrival_date" required>
 
-                    <label for="email">Fecha de Salida:</label>
+                    <label for="DepartureDate">Fecha de Salida:</label>
                     <input type="date" id="departureDate" name="departure_date" required>
 
                     <label for="bookingStatus">Estado de la Reserva:</label>
@@ -67,12 +67,12 @@
                         <option value="Cancelada">Cancelada</option>
                     </select>
 
-                    <input type="submit" value="Crear Reserva">
+                    <input type="submit" value="Registrar Reserva">
                 </form>
             </div>
 
             <%
-                List<Booking> bookinglist = (List<Booking>) request.getSession().getAttribute("bookingList");
+                List<Booking> bookinglist = (List<Booking>) request.getSession().getAttribute("bookinglist");
                 if (bookinglist == null || bookinglist.isEmpty()) {
             %>
                 <div style="text-align: center; margin-top: 20px; color: #ccc;">
