@@ -220,3 +220,15 @@ button[type="submit"]:hover {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+.btn {
+    padding: 0.5rem 1rem;
+    margin: 0 0.3rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    background-color: #d4af37;
+    color: #000;
+}

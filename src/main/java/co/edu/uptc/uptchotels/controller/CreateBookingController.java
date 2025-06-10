@@ -52,7 +52,7 @@ public class CreateBookingController extends HttpServlet{
 
             if(hotelList == null || hotelList.isEmpty()) {
                 req.getSession().setAttribute("error", "No hay hoteles disponibles para realizar la reserva.");
-                resp.sendRedirect("error.html");
+                resp.sendRedirect(req.getContextPath() + "/error.jsp");
                 return;
             }
 
@@ -67,7 +67,7 @@ public class CreateBookingController extends HttpServlet{
 
             if (selectedHotel == null) {
                 req.getSession().setAttribute("error", "El hotel seleccionado no está disponible.");
-                resp.sendRedirect("error.html");
+                resp.sendRedirect(req.getContextPath() + "/error.jsp");
                 return;
             }
     
@@ -81,7 +81,7 @@ public class CreateBookingController extends HttpServlet{
 
             if (reservasActivas >= selectedHotel.getRoomCapacity()) {
                 req.getSession().setAttribute("error", "No hay habitaciones disponibles en el hotel seleccionado.");
-                resp.sendRedirect("error.html");
+                req.getRequestDispatcher("/WEB-INF/jsp/error.jsp").forward(req, resp);
                 return;
             }
 
@@ -108,7 +108,7 @@ public class CreateBookingController extends HttpServlet{
             e.printStackTrace();
             String msg = e.getMessage();
             req.getSession().setAttribute("error", msg);
-            resp.sendRedirect("error.html");
+            resp.sendRedirect(req.getContextPath() + "/error.jsp");
         }
     }
 

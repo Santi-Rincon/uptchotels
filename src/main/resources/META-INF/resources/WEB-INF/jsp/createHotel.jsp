@@ -66,15 +66,20 @@
             </div>
 
             <% List<Hotel> hotellist=(List<Hotel>)request.getSession().getAttribute("hotellist");
-                if(hotellist !=null) { %>
+                if (hotellist == null || hotellist.isEmpty()) {
+            %>
                 <div style="text-align: center; margin-top: 20px; color: #ccc;">
-                    <h2> Lista de hoteles vacia </h2>
+                    <h2>Lista de hoteles vacia</h2>
                 </div>
-                <%} else {%>
-                    <div style="text-align: center; margin-top: 20px; color: #ccc;">
-                        <h2> Existen hoteles en el sistema! </h2>
-                    </div>
-                    <%}%>
+            <%
+                } else {
+            %>
+                <div style="text-align: center; margin-top: 20px; color: #ccc;">
+                    <h2>Existen hoteles en el sistema!</h2>
+                </div>
+            <%
+                }
+            %>
         </body>
 
         </html>

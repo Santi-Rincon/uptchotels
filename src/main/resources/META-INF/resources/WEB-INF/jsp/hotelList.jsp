@@ -62,7 +62,7 @@
                     <td><%= hotel.getPhone() %></td>
                     <td><%= hotel.getEmail() %></td>
                     <td><%= hotel.getRoomCapacity() %></td>
-                    <td><%= hotel.isStatus() %></td>
+                    <td><%= hotel.isStatus() ? "Activo" : "Inactivo"%></td>
                     
                     <td>
                         <a href="edithotel?name=<%= hotel.getName() %>" class="btn edit">Modificar</a>

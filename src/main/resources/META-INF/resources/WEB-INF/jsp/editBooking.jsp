@@ -64,7 +64,7 @@
                 %>
             </select><br><br>
 
-            <input type="submit" value="Actualizar Estado">
+            <button type="submit" class="btn">Actualizar Estado</button>
         </form>
         
         <a href="bookings" class="link-back">Volver a la lista de Reservas</a>
