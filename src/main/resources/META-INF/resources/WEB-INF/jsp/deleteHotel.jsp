@@ -22,7 +22,7 @@
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introcreatehotel">Crear Hotel</a>
                 <a href="hotels">Gestionar Hotel</a>
-                <a href="findemployee">Buscar Hotel</a>
+                <a href="findhotel">Buscar Hotel</a>
             </div>
         </div>
 
