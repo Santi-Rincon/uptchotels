@@ -9,6 +9,14 @@ import co.edu.uptc.uptchotels.model.Hotel;
 public class HotelService {
     private List<Hotel> hotels = new ArrayList<Hotel>();
 
+    public HotelService(){
+        hotels = new ArrayList<>();
+    }
+
+    public HotelService(List<Hotel> hotels) {
+        this.hotels = hotels;
+    }
+
     public void addHotel(Hotel hotel) {
         
         boolean exists = hotels.stream()

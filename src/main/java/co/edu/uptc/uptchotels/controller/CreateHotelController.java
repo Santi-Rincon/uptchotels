@@ -3,7 +3,7 @@ package co.edu.uptc.uptchotels.controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import co.edu.uptc.uptchotels.service.HotelService;
 import co.edu.uptc.uptchotels.model.Hotel;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -13,10 +13,11 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/createhotel")
 public class CreateHotelController extends HttpServlet {
-    
+    private HotelService hotelService;
 
     public CreateHotelController() {
         super();
+        this.hotelService = new HotelService();
     }
 
     @Override
@@ -53,6 +54,8 @@ public class CreateHotelController extends HttpServlet {
             hotel.setEmail(email);
             hotel.setRoomCapacity(roomCapacity);
             hotel.setStatus(status);
+
+            hotelService.addHotel(hotel);
     
             
             List<Hotel> hotelList = (List<Hotel>) req.getSession().getAttribute("hotellist");

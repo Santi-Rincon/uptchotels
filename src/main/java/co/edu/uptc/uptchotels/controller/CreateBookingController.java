@@ -45,6 +45,7 @@ public class CreateBookingController extends HttpServlet{
             List<Hotel> hotelList = (List<Hotel>) req.getSession().getAttribute("hotellist");
             List<Booking> bookingList = (List<Booking>) req.getSession().getAttribute("bookinglist");
 
+
             if(bookingList == null) {
                 bookingList = new ArrayList<>();
             }
@@ -84,6 +85,9 @@ public class CreateBookingController extends HttpServlet{
                 return;
             }
 
+            HotelService hotelService = new HotelService(hotelList);
+            BookingService bookingService = new BookingService(hotelService);
+
             Booking booking = new Booking();
             booking.setHotelName(hotelName);
             booking.setHotelCity(hotelCity);
@@ -102,7 +106,8 @@ public class CreateBookingController extends HttpServlet{
     
         } catch (Exception e) {
             e.printStackTrace();
-            req.getSession().setAttribute("error", "Error al registrar la reserva.");
+            String msg = e.getMessage();
+            req.getSession().setAttribute("error", msg);
             resp.sendRedirect("error.html");
         }
     }
