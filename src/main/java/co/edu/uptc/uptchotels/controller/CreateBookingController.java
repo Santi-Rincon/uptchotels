@@ -39,6 +39,7 @@ public class CreateBookingController extends HttpServlet{
             String guestName = req.getParameter("guest_name");
             String guestId = req.getParameter("guest_id");
             String guestEmail = req.getParameter("guest_email");
+            String bookingStatus = req.getParameter("booking_status");
             LocalDate arrivalDate = req.getParameter("arrival_date") != null ? LocalDate.parse(req.getParameter("arrival_date")) : LocalDate.now();
             LocalDate departureDate = req.getParameter("departure_date") != null ? LocalDate.parse(req.getParameter("departure_date")) : LocalDate.now();
 
@@ -96,6 +97,11 @@ public class CreateBookingController extends HttpServlet{
             booking.setGuestEmail(guestEmail);
             booking.setArrivalDate(arrivalDate);
             booking.setDepartureDate(departureDate);
+            if (bookingStatus != null && !bookingStatus.isEmpty()) {
+                booking.setBookingStatus(bookingStatus);
+            } else {
+                booking.setBookingStatus("Registrada");
+            }
             
             bookingList.add(booking);
             bookingService.registerBooking(booking);

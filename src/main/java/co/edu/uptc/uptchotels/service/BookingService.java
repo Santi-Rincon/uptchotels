@@ -36,7 +36,9 @@ public class BookingService {
                 throw new IllegalStateException("No hay habitaciones disponibles en el hotel");
             }
     
-            booking.setBookingStatus("Registrada");
+            if (booking.getBookingStatus() == null || booking.getBookingStatus().isEmpty()) {
+                booking.setBookingStatus("Registrada");
+            }
             bookings.add(booking);
         }
     

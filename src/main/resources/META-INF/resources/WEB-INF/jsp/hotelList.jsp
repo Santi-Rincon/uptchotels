@@ -27,7 +27,7 @@
             <div class="dropdown-content">
                 <a href="${pageContext.request.contextPath}/introcreatebooking">Crear Reserva</a>
                 <a href="bookings">Gestionar Reserva</a>
-                <a href="findcustomer">Generar Reporte De Reservas</a>
+                <a href="reportbooking">Generar Reporte De Reservas</a>
             </div>
         </div>
 

@@ -60,7 +60,14 @@ public class ReportService {
         Map<LocalDate, Integer> result = new HashMap<>();
         for (Booking b : bookings) {
             if (b.getBookingStatus().equalsIgnoreCase(status)) {
-                LocalDate date = b.getArrivalDate();
+                LocalDate date;
+                if (status.equalsIgnoreCase("Check-in")) {
+                    date = b.getArrivalDate();
+                } else if (status.equalsIgnoreCase("Check-out")) {
+                    date = b.getDepartureDate();
+                } else {
+                    date = b.getArrivalDate(); // fallback
+                }
                 result.put(date, result.getOrDefault(date, 0) + 1);
             }
         }
